@@ -1,0 +1,2 @@
+# GlobalIntelDesk.com
+Advisiory
