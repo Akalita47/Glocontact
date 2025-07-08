@@ -1,137 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Intel Desk</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000;
-            color: #f1f5f9;
-        }
-        .gradient-bg {
-            background: linear-gradient(to right, #1e3a8a, #0f172a);
-        }
-        .section-bg {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-        }
-        #map {
-            height: 500px;
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 5px solid #000;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Global Intel Desk</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="text-white">
-    <div id="preloader" class="fixed inset-0 bg-black z-50 flex items-center justify-center">
-        <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-yellow-400"></div>
-    </div>
-    <script>
-        window.addEventListener('load', () => {
-            document.getElementById('preloader').style.display = 'none';
-        });
-    </script>
+<body class="bg-gray-900 text-white font-sans min-h-screen flex items-center justify-center p-6">
 
-    <header class="gradient-bg text-white p-6 shadow-lg sticky top-0 z-50" data-aos="fade-down">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold tracking-wide">Global Intel Desk</h1>
-            <nav>
-                <ul class="flex gap-6 text-sm md:text-base">
-                    <li><a href="#about" class="hover:text-yellow-300 transition">About</a></li>
-                    <li><a href="#careers" class="hover:text-yellow-300 transition">Careers</a></li>
-                    <li><a href="#services" class="hover:text-yellow-300 transition">Services</a></li>
-                    <li><a href="#contact" class="hover:text-yellow-300 transition">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <div class="w-full max-w-lg bg-gray-800 p-8 rounded-xl shadow-lg">
+    <h1 class="text-3xl font-bold mb-6 text-yellow-400 text-center">Contact Us</h1>
+    <form id="contact-form" class="space-y-4">
+      <input name="name" type="text" placeholder="Your Name" required class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
 
-    <section class="relative h-[90vh] flex items-center justify-center text-white overflow-hidden">
-        <video autoplay muted loop class="absolute w-full h-full object-cover">
-            <source src="https://cdn.coverr.co/videos/coverr-a-digital-world-4544/1080p.mp4" type="video/mp4">
-        </video>
-        <div class="bg-black bg-opacity-60 z-10 p-10 rounded-xl text-center max-w-2xl" data-aos="zoom-in">
-            <h2 class="text-5xl font-bold mb-4">Global Security. Real-Time Intelligence.</h2>
-            <p class="text-lg">Empowering Corporations with OSINT, Travel Advisory & Crisis Updates</p>
-        </div>
-    </section>
+      <input name="email" type="email" placeholder="Your Email" required class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400">
 
-    <!-- Other sections skipped for brevity -->
+      <textarea name="message" rows="4" placeholder="Your Message" required class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md placeholder-gray-400 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"></textarea>
 
-    <section id="contact" class="py-20 px-6 section-bg mx-6 my-10" data-aos="fade-up">
-        <div class="container mx-auto max-w-3xl">
-            <h3 class="text-4xl font-semibold mb-6 text-center text-yellow-300">Contact Us</h3>
-            <form id="contact-form" class="grid gap-6 p-8 rounded-xl bg-white bg-opacity-10">
-                <input name="name" type="text" required placeholder="Your Name" class="p-4 border border-white rounded-md bg-transparent text-white placeholder-gray-300 focus:ring-2 focus:ring-yellow-400">
-                <input name="email" type="email" required placeholder="Your Email" class="p-4 border border-white rounded-md bg-transparent text-white placeholder-gray-300 focus:ring-2 focus:ring-yellow-400">
-                <textarea name="message" required placeholder="Your Message" rows="5" class="p-4 border border-white rounded-md bg-transparent text-white placeholder-gray-300 focus:ring-2 focus:ring-yellow-400"></textarea>
-                <button type="submit" class="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:bg-yellow-500 transition">Send Message</button>
-            </form>
-            <script>
-                const scriptURL = "https://script.google.com/macros/s/AKfycbwyuJF_ZoVgbEXHslGi8n2etMivheMTxrd7A5DlZVgb1cuqQ_Vp6Yb3E5HNC40x4B45Lw/exec";
-                document.getElementById("contact-form").addEventListener("submit", e => {
-                    e.preventDefault();
-                    const form = new FormData(document.getElementById("contact-form"));
-                    fetch(scriptURL, { method: "POST", body: form })
-                        .then(() => {
-                            alert("✅ Message sent successfully!");
-                            document.getElementById("contact-form").reset();
-                        })
-                        .catch(error => {
-                            console.error("❌ Error!", error);
-                            alert("❌ Failed to send message.");
-                        });
-                });
-            </script>
-        </div>
-    </section>
+      <button type="submit" class="w-full py-3 bg-yellow-400 text-black font-semibold rounded-md hover:bg-yellow-500 transition">Send Message</button>
+    </form>
+    <p id="response" class="text-center text-sm mt-4"></p>
+  </div>
 
-    <footer class="gradient-bg text-white py-6 text-center" data-aos="fade-up">
-        <p class="text-sm">&copy; 2025 Global Intel Desk. All rights reserved.</p>
-    </footer>
+  <!-- Script -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_SCRIPT_URL_HERE/exec'; // 🔁 Replace with your URL
+    const form = document.getElementById('contact-form');
+    const response = document.getElementById('response');
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-        var map = L.map('map').setView([20, 0], 2);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-        var markers = L.markerClusterGroup();
-        function getRandomCoordinates() {
-            const lat = (Math.random() * 180 - 90).toFixed(6);
-            const lng = (Math.random() * 360 - 180).toFixed(6);
-            return [lat, lng];
-        }
-        function simulateNewsAlert() {
-            const [lat, lng] = getRandomCoordinates();
-            const newsMessages = [
-                "New OSINT report released.",
-                "Travel advisory updated.",
-                "Technology launched.",
-                "Crisis workshop next month.",
-                "New intel partnership."
-            ];
-            const randomNews = newsMessages[Math.floor(Math.random() * newsMessages.length)];
-            const marker = L.marker([lat, lng]).bindPopup(`<b>Breaking News!</b><br>${randomNews}`);
-            markers.addLayer(marker);
-            map.addLayer(markers);
-        }
-        setInterval(simulateNewsAlert, 10000);
-    </script>
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(() => {
+        response.textContent = '✅ Message sent successfully!';
+        response.classList.add('text-green-400');
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        response.textContent = '❌ Failed to send message. Please try again.';
+        response.classList.add('text-red-400');
+      });
+    });
+  </script>
 </body>
 </html>
